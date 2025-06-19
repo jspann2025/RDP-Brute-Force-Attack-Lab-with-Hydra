@@ -8,7 +8,7 @@
 
 This lab demonstrates a brute-force attack against Remote Desktop Protocol (RDP) using **Hydra** within an isolated and controlled test environment built on **UTM** running on a **MacBook Air M1**. The goal is to test password strength and understand the importance of hardening RDP access.
 
-> ⚠️ **Legal Disclaimer**: This lab is performed in a **private test environment**. Never conduct unauthorized testing on live or production systems.
+>  **Legal Disclaimer**: This lab was performed in a **private test environment**. Never conduct unauthorized testing on live or production systems.
 
 ---
 
@@ -30,8 +30,8 @@ This lab demonstrates a brute-force attack against Remote Desktop Protocol (RDP)
 - **Emulated VLAN** used for host-only communication
 - Both VMs configured on the same VLAN: `cyberlab`
 - IP addresses assigned:
-  - Kali Linux: `192.168.100.10`
-  - Windows 10: `192.168.100.20`
+  - Kali Linux: `192.168.128....`
+  - Windows 10: `192.168.1128...`
 
 ---
 
@@ -61,7 +61,7 @@ welcome1
 
 **Hydra Command**
 ```bash
-hydra -V -f -l testuser -P rdp-pass.txt rdp://192.168.100.20
+hydra -V -f -l testuser -P rdp-pass.txt rdp://192.168.128...
 ```
 
 **Options Explained**
@@ -118,15 +118,6 @@ hydra -V -f -l testuser -P rdp-pass.txt rdp://192.168.100.20
 ├── screenshots/              # (Optional) Screenshots of attack steps
 └── notes.md                  # Personal notes or reflections
 ```
-
----
-
-## Next Steps
-
-- Extend this to multiple user brute-force (`-L users.txt`)
-- Automate RDP log parsing and alerting
-- Add detection signatures in SIEM (e.g., Splunk or Wazuh)
-- Harden your Windows RDP setup and re-test
 
 ---
 
